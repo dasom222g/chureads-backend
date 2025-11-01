@@ -86,8 +86,11 @@ postRouter.post("/", async (req, res) => {
 // PUT /posts/:id - 특정 게시물 수정
 postRouter.put("/:id", async (req, res) => {
   // URL 파라미터에서 게시물 ID를 받아서 해당 게시물을 수정
+
+  console.log("📝 게시물 수정!!");
   try {
     const { id } = req.params;
+    console.log("🚀 ~ id:", id);
     const post = req.body;
     const result = await collection.updateOne(
       { _id: new ObjectId(id) },
